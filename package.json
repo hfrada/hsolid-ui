@@ -1,6 +1,7 @@
 {
-  "name": "vite-template-solid",
-  "version": "0.0.0",
+  "name": "@hfrada/fui",
+  "version": "1.0.0",
+  "main": "main.tsx",
   "description": "",
   "type": "module",
   "scripts": {
