@@ -1,7 +1,7 @@
 import { Show } from "solid-js"
 
-import FIUIcon from "../../../icon/Icon"
-import Tooltip from "../../../overlay/Tooltip"
+import FIUIcon from "../../../../icon/Icon"
+import Tooltip from "../../../../overlay/Tooltip"
 
 export interface FUIThInfoProps {
     info?: string

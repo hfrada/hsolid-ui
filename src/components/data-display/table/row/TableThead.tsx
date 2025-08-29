@@ -1,18 +1,20 @@
 import { createMemo, JSXElement, Show, splitProps } from "solid-js"
 
-import { HtmlAtrribute } from "../../../types/htmlAttributes"
-import { cn } from "../../../utils/class"
+import { HtmlAtrribute } from "../../../../types/htmlAttributes"
+import { cn } from "../../../../utils/class"
 import FUITableCol from "../col/TableCol"
 import { FUITableThData, tableThKeys } from "../col/TableTh"
-import { FUITableHeader } from "../types/table"
+import { FUITableHeader, FUITableHeaderCol } from "../types/table"
 import FUITableTr, { FUITableTrData, tableTrKeys } from "./TableTr"
 
 export interface FUITableTheadData<T extends object, SortKey extends string = string> extends FUITableTrData<T, SortKey>, FUITableThData<SortKey> {
     theadSticky?: boolean
+    thClass?: string
+    thClassFunc?(header: FUITableHeaderCol<T, SortKey>): string | undefined
     renderThead?(headers: Array<FUITableHeader<T, SortKey>>): JSXElement
     renderTh?(header: FUITableHeader<T, SortKey>, index: number): JSXElement
 }
-export const tableTheadKeys = ["theadSticky", "renderThead", "renderTh", ...tableTrKeys, ...tableThKeys] as const
+export const tableTheadKeys = ["theadSticky", "thClass", "thClassFunc", "renderThead", "renderTh", ...tableTrKeys, ...tableThKeys] as const
 
 export interface FUITableTheadProps<T extends object, SortKey extends string = string> extends
     HtmlAtrribute<"thead">, FUITableTheadData<T, SortKey> { }
@@ -26,7 +28,7 @@ export default function FUITableThead<T extends object, SortKey extends string =
         <thead
             {...theadProps}
             class={cn(
-                "bg-neutral-100 rounded-md",
+                "bg-neutral-50",
                 props.theadSticky && "sticky top-0 z-[2]",
                 theadProps.class,
             )}
@@ -36,6 +38,7 @@ export default function FUITableThead<T extends object, SortKey extends string =
                     {(header, index) => <Show when={!pickProps.renderTh} fallback={pickProps.renderTh!(header.header, index)}>
                         <FUITableCol.Th
                             {...header.header}
+                            class={cn(pickProps.thClass, pickProps.thClassFunc?.(header))}
                             sortValue={pickProps.sortValue}
                             onSort={pickProps.onSort}
                         />

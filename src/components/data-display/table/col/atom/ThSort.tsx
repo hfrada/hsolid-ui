@@ -1,7 +1,7 @@
 import { Show } from "solid-js"
 
-import { cn } from "../../../../utils/class"
-import FIUIcon from "../../../icon/Icon"
+import { cn } from "../../../../../utils/class"
+import FIUIcon from "../../../../icon/Icon"
 import { FUITableSort } from "../../types/table"
 
 export interface FUIThSortProps<K extends string = string> {

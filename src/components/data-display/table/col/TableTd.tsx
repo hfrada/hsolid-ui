@@ -1,7 +1,7 @@
 import { createMemo, splitProps } from "solid-js"
 
-import { HtmlAtrribute } from "../../../types/htmlAttributes"
-import { cn } from "../../../utils/class"
+import { HtmlAtrribute } from "../../../../types/htmlAttributes"
+import { cn } from "../../../../utils/class"
 import tableCol from "../const/col"
 import { FUITableCol, FUITableHeader } from "../types/table"
 

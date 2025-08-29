@@ -1,6 +1,6 @@
 {
   "name": "@hfrada/fui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "main.tsx",
   "description": "",
   "type": "module",
@@ -13,6 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.12",
+    "autoprefixer": "^10.4.21",
     "typescript": "^5.7.2",
     "vite": "^6.0.0",
     "vite-plugin-solid": "^2.11.6"
@@ -22,6 +23,7 @@
     "postcss": "^8.5.6",
     "solid-icons": "^1.1.0",
     "solid-js": "^1.9.5",
-    "tailwindcss": "^4.1.12"
+    "tailwindcss": "^4.1.12",
+    "tippy.js": "^6.3.7"
   }
 }

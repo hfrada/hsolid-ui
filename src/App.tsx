@@ -1,41 +1,44 @@
 import { createSignal, type Component } from "solid-js";
 import "tippy.js/dist/tippy.css";
-import Tooltip from "./components/overlay/Tooltip";
-import FUITable from "./components/table/Table";
+import * as FUI from "./main"
 
 const App: Component = () => {
 
   const [show, setShow] = createSignal(false)
   const [text, setText] = createSignal("1234")
+  const [tab, setTab] = createSignal(1)
 
   return (
-    <div>
-      <div class="mx-auto w-fit mt-33">
-        <Tooltip
+    <div class="p-5">
+      <h1 class="text-xl font-bold">Tooltips</h1>
+      <div class="mx-auto w-fit">
+        <FUI.FUITooltip
           as="p"
           text={text()}
           show={() => show()}
           class="mx-auto w-fit"
-        >Dynamic: {text()}</Tooltip>
-        <Tooltip
+        >Dynamic: {text()}</FUI.FUITooltip>
+        <FUI.FUITooltip
           as="p"
           text={text()}
           // show={() => show()}
           class="mx-auto w-fit"
-        >Always: {text()}</Tooltip>
-        <Tooltip.Clipped
+        >Always: {text()}</FUI.FUITooltip>
+        <FUI.FUITooltip.Clipped
           as="p"
           text={text()}
           class="mx-auto w-fit max-w-20 truncate"
-        >Clipped: {text()}</Tooltip.Clipped>
+        >Clipped: {text()}</FUI.FUITooltip.Clipped>
         <input class="bg-red-100" value={text()} onInput={(e) => setText(e.target.value)} />
         <button type="button" class="bg-gray-100 cursor-pointer" onClick={() => setShow((s) => !s)}>
           show: {show().toString()}
         </button>
 
       </div>
+
       <hr class="my-3" />
-      <FUITable
+      <h1 class="text-xl font-bold mb-3">Table</h1>
+      <FUI.FUITable
         sortValue={{
           key: "1",
         }}
@@ -60,6 +63,18 @@ const App: Component = () => {
           },
         ]}
         items={Array(10)}
+      />
+
+      <hr class="my-3" />
+      <h1 class="text-xl font-bold mb-3">Tabs</h1>
+      <FUI.FUITabs
+        value={tab()}
+        items={[
+          { name: "Tab 1", value: 1 },
+          { name: "Tab 2", value: 2 },
+          { name: "Tab 3", value: 3 },
+        ]}
+        onChange={(v) => setTab(v || 1)}
       />
     </div>
   );

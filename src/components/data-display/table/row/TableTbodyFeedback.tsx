@@ -1,8 +1,8 @@
 import { createMemo, JSXElement, Match, Show, splitProps, Switch } from "solid-js"
 
-import { HtmlAtrribute } from "../../../types/htmlAttributes"
-import { cn } from "../../../utils/class"
-import FUISpinner from "../../feedback/Spinner"
+import { HtmlAtrribute } from "../../../../types/htmlAttributes"
+import { cn } from "../../../../utils/class"
+import FUISpinner from "../../../feedback/Spinner"
 import { FUITableTrItemData, tableTrItemKeys } from "./TableTrItem"
 
 export interface FUITableTbodyFeedbackData<T extends object, SortKey extends string = string> extends FUITableTrItemData<T, SortKey> {

@@ -1,6 +1,6 @@
 import { For, JSXElement, splitProps } from "solid-js"
 
-import { HtmlAtrribute } from "../../../types/htmlAttributes"
+import { HtmlAtrribute } from "../../../../types/htmlAttributes"
 import { FUITableHeaderCol } from "../types/table"
 import FUITableTr, { FUITableTrData, tableTrKeys } from "./TableTr"
 
