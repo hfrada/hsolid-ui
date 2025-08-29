@@ -71,7 +71,7 @@ const App: Component = () => {
         value={tab()}
         items={[
           { name: "Tab 1", value: 1 },
-          { name: "Tab 2", value: 2 },
+          { name: "Tab 2", value: 2, disabled: true },
           { name: "Tab 3", value: 3 },
         ]}
         onChange={(v) => setTab(v || 1)}

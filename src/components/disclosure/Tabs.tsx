@@ -43,9 +43,9 @@ export default function FUITabs<T extends FUI_TabsAllowedTypeItem, I = unknown>(
                         disabled={pickProps.disabled || item.disabled}
                         class={cn(
                             "group inline-flex items-center justify-center align-middle", // flex
-                            "whitespace-nowrap font-bold text-neutral-400 hover:text-rose-500 disabled:text-neutral-300 aria-[current=true]:text-rose-500", //text
+                            "whitespace-nowrap font-bold text-neutral-300 hover:text-rose-500 disabled:text-neutral-200 aria-[current=true]:text-rose-500", //text
                             "px-5 h-8 md:h-10 w-full sm:w-auto rounded-full aria-[current=true]:bg-rose-50", // box & sizing
-                            "ring-0 outline-offset-[-1px] outline-0 outline-rose-500 aria-[current=true]:outline-1", // border
+                            "ring-0 border-offset-[-1px] border border-transparent aria-[current=true]:border-rose-500", // border
                             "cursor-pointer disabled:cursor-not-allowed", // cursor
                             "transition-all duration-200 ease-in", // animation
                             size(),
